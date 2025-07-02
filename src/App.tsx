@@ -240,7 +240,7 @@ export default function App() {
                   {section.title}
                 </motion.h1>
 
-                <div style={{ height: "60vh", width: "100%" }}>
+                {/* <div style={{ height: "60vh", width: "100%" }}>
                   <Canvas camera={{ position: [2, 2, 2] }} shadows>
                     <Environment preset="sunset" />
                     <ambientLight intensity={0.6} />
@@ -270,7 +270,7 @@ export default function App() {
                       enableZoom={false}
                     />
                   </Canvas>
-                </div>
+                </div> */}
 
                 <h2
                   style={{
@@ -290,7 +290,7 @@ export default function App() {
               <div style={{ color: "white", textAlign: "center" }}>
                 <h1
                   style={{
-                    fontSize: "3rem",
+                    fontSize: "3.5rem",
                     fontWeight: "bold",
                     marginBottom: "1rem",
                     color: "#ffd700",
@@ -300,7 +300,7 @@ export default function App() {
                 </h1>
                 <h2
                   style={{
-                    fontSize: "1.5rem",
+                    fontSize: "2rem",
                     marginBottom: "2rem",
                     color: "#e0e0e0",
                   }}
@@ -334,7 +334,7 @@ export default function App() {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function ContentRenderer({ content }: { content: any }) {
   return (
-    <div style={{ fontSize: "1.1rem", lineHeight: "1.6" }}>
+    <div style={{ fontSize: "1.3rem", lineHeight: "1.6" }}>
       {content.definition && (
         <div style={{ marginBottom: "1.5rem" }}>
           <h3 style={{ color: "#ffd700", marginBottom: "0.5rem" }}>
