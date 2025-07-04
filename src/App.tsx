@@ -51,6 +51,9 @@ function Model({ onClick, section }: { onClick: () => void; section: number }) {
     </Center>
   );
 }
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import MiniGame from "./MiniGame";
+
 
 const sections = [
   {
@@ -149,9 +152,11 @@ const sections = [
   },
 ];
 
-export default function App() {
+function AppContent() {
   const [currentSection, setCurrentSection] = useState(0);
   const [rotateSpeed] = useState(10);
+
+  const navigate = useNavigate()
 
   const handleModelClick = () => {
     const nextSection = (currentSection + 1) % sections.length;
@@ -177,6 +182,27 @@ export default function App() {
         currentSection={currentSection}
         onSectionChange={handleSectionChange}
       />
+      <button
+        style={{
+          position: "fixed",
+          bottom: "30px",
+          right: "30px",
+          zIndex: 1001,
+          backgroundColor: "#ffd700",
+          color: "#000",
+          border: "none",
+          borderRadius: "50%",
+          width: "70px",
+          height: "70px",
+          fontSize: "1.2rem",
+          fontWeight: "bold",
+          cursor: "pointer",
+          boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
+        }}
+        onClick={() => navigate("/minigame")}
+      >
+        Mini Game
+      </button>
 
       {sections.map((section, index) => (
         <div
@@ -565,3 +591,16 @@ const NavigationButton = ({
     </div>
   );
 };
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<AppContent />} />
+        <Route path="/minigame" element={<MiniGame />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
