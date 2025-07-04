@@ -1,8 +1,12 @@
-import { motion } from "framer-motion"; // Added for animations
+import { motion } from "framer-motion"; 
 import { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 import MiniGame from "./MiniGame";
-
 
 const sections = [
   {
@@ -15,7 +19,7 @@ const sections = [
   {
     id: "section-4-1",
     title: "4.1. Cạnh tranh ở cấp độ độc quyền",
-    subtitle: "Nghiên cứu về mối quan hệ giữa cạnh tranh và độc quyền",
+    subtitle: "Khái niệm và nguyên nhân hình thành độc quyền",
     content: {
       definition:
         "Độc quyền là liên minh của các doanh nghiệp lớn có khả năng sản xuất và cung ứng một loại hàng hóa nhất định, có thể khống chế thị trường và thu được lợi nhuận độc quyền cao.",
@@ -29,14 +33,24 @@ const sections = [
   {
     id: "section-4-1-1",
     title: "4.1.1. Độc quyền và độc quyền nhà nước",
-    subtitle: "Khái niệm và nguyên nhân hình thành",
+    subtitle: "Khái niệm và nguyên nhân hình thành độc quyền nhà nước",
     content: {
-      stateMonopoly:
+      definition:
         "Độc quyền nhà nước là hình thức độc quyền mà nhà nước thiết lập vị trí thống trị của mình trong một số lĩnh vực kinh tế dựa trên quyền lực chính trị.",
-      monopolyProfit:
-        "Lợi nhuận độc quyền cao thực chất là lao động không công của công nhân làm việc trong xí nghiệp độc quyền",
-      monopolyPrice:
-        "Giá cả độc quyền là giá do các tổ chức độc quyền đặt ra, cao hơn chi phí sản xuất khi bán và thấp hơn chi phí sản xuất khi mua hàng hóa.",
+      causes: [
+        "sự tích tụ và tập trung tư bản lớn đòi hỏi quy mô vốn lớn và sự quản lý, phân phối khách quan",
+        "sự phát triển của phân công lao động xã hội tạo ra những ngành và lĩnh vực mà các tổ chức độc quyền không muốn hoặc không thể đầu tư do yêu cầu vốn lớn hoặc lợi nhuận thấp. Nhà nước phải can thiệp để thúc đẩy sự phát triển của các lĩnh vực này.",
+        "độc quyền nhà nước xuất hiện để làm giảm sự gia tăng phân hóa giàu nghèo, làm sâu sắc thêm mâu thuẫn giai cấp trong xã hội.",
+      ],
+    },
+  },
+  {
+    id: "section-4-1-1",
+     title: "4.1.1. Độc quyền và độc quyền nhà nước",
+        subtitle: "Bản chất độc quyền nhà nước",
+    content: {
+      intro:
+        "Đây là sự thể hiện lợi ích của các tổ chức độc quyền tư bản và tiếp tục duy trì, phát triển chúng. Về bản chất, nó là sự kết hợp sức mạnh của các tổ chức độc quyền lớn nhất với bộ máy nhà nước để phục vụ lợi ích của tư bản lớn.",
     },
   },
   {
@@ -103,7 +117,7 @@ const sections = [
 
 function AppContent() {
   const [currentSection, setCurrentSection] = useState(0);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleSectionChange = (index: number) => {
     setCurrentSection(index);
     document.getElementById(sections[index].id)?.scrollIntoView({
