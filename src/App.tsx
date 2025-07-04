@@ -1,56 +1,5 @@
-"use client";
-
-import { Canvas } from "@react-three/fiber";
-import { Center, OrbitControls, useGLTF, Environment } from "@react-three/drei";
-import { Suspense, useEffect, useState } from "react";
-import * as THREE from "three";
 import { motion } from "framer-motion"; // Added for animations
-
-function Model({ onClick, section }: { onClick: () => void; section: number }) {
-  const gltf = useGLTF("/bust_of_vladimir_lenin.glb");
-
-  useEffect(() => {
-    gltf.scene.traverse((child) => {
-      if ((child as THREE.Mesh).isMesh) {
-        const mesh = child as THREE.Mesh;
-        if (
-          !mesh.material ||
-          !Object.prototype.hasOwnProperty.call(
-            mesh.material as THREE.Material,
-            "color"
-          )
-        ) {
-          // Change color based on section
-          const colors = [
-            "#ff6b35",
-            "#f7931e",
-            "#ffd700",
-            "#ff4757",
-            "#2ed573",
-          ];
-          mesh.material = new THREE.MeshStandardMaterial({
-            color: colors[section % colors.length],
-          });
-        }
-      }
-    });
-
-    const box = new THREE.Box3().setFromObject(gltf.scene);
-    const size = box.getSize(new THREE.Vector3());
-    console.log("Model size:", size);
-  }, [gltf, section]);
-
-  return (
-    <Center>
-      <primitive
-        object={gltf.scene}
-        scale={1.8}
-        position={[0, -2, 0]}
-        onClick={onClick}
-      />
-    </Center>
-  );
-}
+import { useState } from "react";
 
 const sections = [
   {
@@ -151,17 +100,6 @@ const sections = [
 
 export default function App() {
   const [currentSection, setCurrentSection] = useState(0);
-  const [rotateSpeed] = useState(10);
-
-  const handleModelClick = () => {
-    const nextSection = (currentSection + 1) % sections.length;
-    setCurrentSection(nextSection);
-    setTimeout(() => {
-      document.getElementById(sections[nextSection].id)?.scrollIntoView({
-        behavior: "smooth",
-      });
-    }, 500);
-  };
 
   const handleSectionChange = (index: number) => {
     setCurrentSection(index);
@@ -239,38 +177,6 @@ export default function App() {
                 >
                   {section.title}
                 </motion.h1>
-
-                {/* <div style={{ height: "60vh", width: "100%" }}>
-                  <Canvas camera={{ position: [2, 2, 2] }} shadows>
-                    <Environment preset="sunset" />
-                    <ambientLight intensity={0.6} />
-                    <directionalLight
-                      position={[5, 5, 5]}
-                      intensity={1.2}
-                      color="#ffffff"
-                      castShadow
-                    />
-                    <Suspense
-                      fallback={
-                        <mesh>
-                          <boxGeometry />
-                          <meshStandardMaterial color="red" />
-                        </mesh>
-                      }
-                    >
-                      <Model
-                        onClick={handleModelClick}
-                        section={currentSection}
-                      />
-                    </Suspense>
-                    <OrbitControls
-                      autoRotate
-                      autoRotateSpeed={rotateSpeed}
-                      enablePan={false}
-                      enableZoom={false}
-                    />
-                  </Canvas>
-                </div> */}
 
                 <h2
                   style={{
