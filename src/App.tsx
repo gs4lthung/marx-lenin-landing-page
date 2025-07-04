@@ -1,5 +1,8 @@
 import { motion } from "framer-motion"; // Added for animations
 import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import MiniGame from "./MiniGame";
+
 
 const sections = [
   {
@@ -98,9 +101,9 @@ const sections = [
   },
 ];
 
-export default function App() {
+function AppContent() {
   const [currentSection, setCurrentSection] = useState(0);
-
+  const navigate = useNavigate()
   const handleSectionChange = (index: number) => {
     setCurrentSection(index);
     document.getElementById(sections[index].id)?.scrollIntoView({
@@ -115,6 +118,27 @@ export default function App() {
         currentSection={currentSection}
         onSectionChange={handleSectionChange}
       />
+      <button
+        style={{
+          position: "fixed",
+          bottom: "30px",
+          right: "30px",
+          zIndex: 1001,
+          backgroundColor: "#ffd700",
+          color: "#000",
+          border: "none",
+          borderRadius: "50%",
+          width: "70px",
+          height: "70px",
+          fontSize: "1.2rem",
+          fontWeight: "bold",
+          cursor: "pointer",
+          boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
+        }}
+        onClick={() => navigate("/minigame")}
+      >
+        Mini Game
+      </button>
 
       {sections.map((section, index) => (
         <div
@@ -471,3 +495,16 @@ const NavigationButton = ({
     </div>
   );
 };
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<AppContent />} />
+        <Route path="/minigame" element={<MiniGame />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
