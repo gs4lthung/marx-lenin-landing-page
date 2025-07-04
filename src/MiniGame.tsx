@@ -425,7 +425,7 @@ const PuzzleGame = () => {
                 }}
             >
                 {/* Nhạc nền mini game */}
-                <audio ref={bgMusicAudio} src="/public/game_music.mp3" loop autoPlay />
+                <audio ref={bgMusicAudio} src="/game_music.mp3" loop autoPlay />
                 <button
                     onClick={() => setIsMusicPlaying((v) => !v)}
                     style={{
@@ -633,14 +633,14 @@ const PuzzleGame = () => {
                 )}
             </div>
             {/* Âm thanh */}
-            <audio ref={bgMusicAudio} src="/public/game_music.mp3" loop autoPlay />
-            <audio ref={correctAudio} src="/public/correct.mp3" preload="auto" />
-            <audio ref={wrongAudio} src="/public/wrong.mp3" preload="auto" />
+            <audio ref={bgMusicAudio} src="/game_music.mp3" loop autoPlay />
+            <audio ref={correctAudio} src="/correct.mp3" preload="auto" />
+            <audio ref={wrongAudio} src="/wrong.mp3" preload="auto" />
             {/* <audio ref={fireworkAudio} src="/public/firework.mp4" preload="auto" /> */}
             {/* Bên trái: Mảnh ghép */}
             <div style={{ position: 'relative', width: '650px', maxWidth: '90vw' }}>
                 <img
-                    src="/public/puzzel_backgroung.png"
+                    src="/puzzel_backgroung.png"
                     alt="Puzzle background"
                     style={{ width: '100%', borderRadius: '18px', boxShadow: '0 8px 32px rgba(67,56,202,0.10)' }}
                 />
@@ -679,7 +679,7 @@ const PuzzleGame = () => {
                                 style={{
                                     width: '100%',
                                     height: '100%',
-                                    backgroundImage: `url(/public/puzzle.jpg)`,
+                                    backgroundImage: `url(/puzzle.jpg)`,
                                     backgroundSize: '500% 400%',
                                     backgroundPosition: `${(i % 5) * 25}% ${(Math.floor(i / 5)) * 25}%`,
                                 }}
