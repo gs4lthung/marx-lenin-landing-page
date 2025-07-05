@@ -1,4 +1,4 @@
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
 import { useState } from "react";
 import {
   BrowserRouter as Router,
@@ -46,8 +46,8 @@ const sections = [
   },
   {
     id: "section-4-1-1",
-     title: "4.1.1. Độc quyền và độc quyền nhà nước",
-        subtitle: "Bản chất độc quyền nhà nước",
+    title: "4.1.1. Độc quyền và độc quyền nhà nước",
+    subtitle: "Bản chất độc quyền nhà nước",
     content: {
       intro:
         "Đây là sự thể hiện lợi ích của các tổ chức độc quyền tư bản và tiếp tục duy trì, phát triển chúng. Về bản chất, nó là sự kết hợp sức mạnh của các tổ chức độc quyền lớn nhất với bộ máy nhà nước để phục vụ lợi ích của tư bản lớn.",
@@ -85,11 +85,11 @@ const sections = [
     subtitle: "Theo lý luận của V.I. Lênin",
     content: {
       characteristics: [
-        "Tập trung sản xuất và tư bản ở mức độ rất cao tạo ra độc quyền",
-        "Tư bản tài chính và bọn đầu sỏ tài chính chi phối",
-        "Xuất khẩu tư bản trở thành quan trọng hơn xuất khẩu hàng hóa",
-        "Hình thành các liên minh độc quyền quốc tế phân chia thị trường thế giới",
-        "Các cường quốc tư bản phân chia lãnh thổ thế giới",
+        "Các tổ chức độc quyền có quy mô tích tụ và tập trung tư bản lớn",
+        "Sức mạnh của các tổ chức độc quyền do tư bản tài chính và hệ thống tài phiệt chi phối",
+        "Xuất khẩu tư bản trở thành phổ biến",
+        "Cạnh tranh để phân chia thị trường thế giới là tất yếu giữa các tập đoàn độc quyền",
+        "Lôi kéo, thúc đẩy các chính phủ vào việc phân định khu vực lãnh thổ ảnh hưởng là cách thức để bảo vệ lợi ích độc quyền",
       ],
       forms: [
         "Cartel (Các-ten): Thỏa thuận về giá cả, sản lượng, thị trường",
